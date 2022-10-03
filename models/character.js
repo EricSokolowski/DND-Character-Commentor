@@ -12,7 +12,6 @@ const commentSchema = new Schema ({
 
 const characterSchema = new Schema({
   name: String,
-  
   race: {
     type: String,
     enum: ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfling', 'Half-Orc', 'Human', 'Tiefling']
@@ -29,12 +28,13 @@ const characterSchema = new Schema({
   background: {
     type: String,
     enum: ['Acolyte', 'Criminal/Spy', 'Folk Hero', 'Noble', 'Sage', 'Soldier'
-    ]
+    ],
   },
-  comments: [commentSchema],
-  owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
-  }, { 
-    timestamps: true,
+  // backstory: String,
+  // comments: [commentSchema],
+  // owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
+  // }, { 
+  //   timestamps: true,
 })
 
 const Character = mongoose.model('Character', characterSchema)

@@ -9,7 +9,22 @@ function index(req, res) {
       })
     })
 }
-
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  console.log(req.body)
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Character.create(req.body)
+  .then(character => {
+    res.redirect('/characters')
+  })
+  .catch( err =>{
+    console.log(err)
+    res.redirect('/characters')
+  })
+}
 export {
-  index
+  index,
+  create,
 }
