@@ -1,0 +1,13 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Characters</h1>
+	<ul>
+  <% characters.forEach(character => { %>
+    <li> <%= character.name %>  <%= character.race %> <%= character.class %> </li>
+  <% }) %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>
