@@ -30,11 +30,11 @@ const characterSchema = new Schema({
     enum: ['Acolyte', 'Criminal/Spy', 'Folk Hero', 'Noble', 'Sage', 'Soldier'
     ],
   },
-  // backstory: String,
-  // comments: [commentSchema],
-  // owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
-  // }, { 
-  //   timestamps: true,
+  backstory: String,
+  comments: [commentSchema],
+  owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
+  }, { 
+    timestamps: true,
 })
 
 const Character = mongoose.model('Character', characterSchema)

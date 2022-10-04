@@ -64,7 +64,7 @@
     <h2>All The Characters</h2>
     <ul>
       <% characters.forEach(character => { %>
-        <%= character.name %> <%= character.race %> <%=character.class %>
+        <a href="/characters/<%= character._id %>"><%= character.name %> <%= character.race %> <%=character.class %></a>
     <%  }) %> 
     </ul>
   <% } %> 

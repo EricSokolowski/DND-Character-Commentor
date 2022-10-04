@@ -24,7 +24,23 @@ function create(req, res) {
     res.redirect('/characters')
   })
 }
+
+function show(req, res) {
+  Character.findById(req.params.id)
+  .populate('owner')
+  .then(character => {
+    res.render('characters/show', {
+      character,
+      title: 'Character Show'
+    })
+  })
+  .catch( err =>{
+    console.log(err)
+    res.redirect('/characters')
+  })
+}
 export {
   index,
   create,
+  show,
 }
