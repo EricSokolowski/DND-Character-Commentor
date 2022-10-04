@@ -1,6 +1,6 @@
 import {  Router } from 'express'
 import { isLoggedIn } from '../middleware/middleware.js'
-import * as charactersCtrl from '../controller/characters.js'
+import * as charactersCtrl from '../controllers/characters.js'
 
 const router = Router()
 
@@ -13,6 +13,8 @@ router.get('/:id/edit', isLoggedIn, charactersCtrl.edit)
 router.put('/:id', isLoggedIn, charactersCtrl.update)
 
 router.post('/', isLoggedIn, charactersCtrl.create)
+
+router.delete('/:id', isLoggedIn, charactersCtrl.delete)
 
 export {
   router

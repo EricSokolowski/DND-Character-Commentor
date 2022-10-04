@@ -70,10 +70,29 @@ function update(req, res) {
     res.redirect(`/characters`)
   })
 }
+
+function deleteCharacter(req, res) {
+  Character.findById(req.params.id)
+  .then(character => {
+    if (character.owner.equals(req.user.profile._id)) {
+      character.delete()
+      .then(() => {
+        res.redirect('/characters')
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/characters')
+  })
+}
 export {
   index,
   create,
   show,
   edit,
   update,
+  deleteCharacter as delete,
 }
