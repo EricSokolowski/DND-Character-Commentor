@@ -1,43 +1,44 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
-<form action="/characters/<%= character._id %>?_method=PUT" method="POST">
-  <label>
-    Name:
-    <input type="text" name="name" autocomplete="off" value="<%= character.name %>">
-  </label>
-  <label>
-    Race:
-    <select name="race">
-      <option value="Dragonborn">Dragonborn</option>
-      <option value="Dwarf">Dwarf</option>
-      <option value="Elf">Elf</option>
-      <option value="Gnome">Gnome</option>
-      <option value="Half-Elf">Half-Elf</option>
-      <option value="Halfling">Halfling</option>
-      <option value="Half-Orc">Half-Orc</option>
-      <option value="'Human">Human</option>
-      <option value="Tiefling">Tiefling</option>
-    </select>
-  </label>
-  <label>
-    Class:
-    <select name="class">
-      <option value="Barbarian">Barbarian</option>
-      <option value="Bard">Bard</option>
-      <option value="Cleric">Cleric</option>
-      <option value="Druid">Druid</option>
-      <option value="Fighter">Fighter</option>
-      <option value="Monk">Monk</option>
-      <option value="Paladin">Paladin</option>
-      <option value="Ranger">Ranger</option>
-      <option value="Rouge">Rouge</option>
-      <option value="Sorcerer">Sorcerer</option>
-      <option value="Warlock">Warlock</option>
-      <option value="Wizard"></option>
-    </select>
+<section>
+  <form action="/characters/<%= character._id %>?_method=PUT" method="POST">
+    <label>
+      Name:
+      <input type="text" name="name" autocomplete="off" value="<%= character.name %>">
     </label>
-    <label>Background:
+    <label>
+      Race:
+      <select name="race">
+        <option value="Dragonborn">Dragonborn</option>
+        <option value="Dwarf">Dwarf</option>
+        <option value="Elf">Elf</option>
+        <option value="Gnome">Gnome</option>
+        <option value="Half-Elf">Half-Elf</option>
+        <option value="Halfling">Halfling</option>
+        <option value="Half-Orc">Half-Orc</option>
+        <option value="'Human">Human</option>
+        <option value="Tiefling">Tiefling</option>
+      </select>
+    </label>
+    <label>
+      Class:
+      <select name="class">
+        <option value="Barbarian">Barbarian</option>
+        <option value="Bard">Bard</option>
+        <option value="Cleric">Cleric</option>
+        <option value="Druid">Druid</option>
+        <option value="Fighter">Fighter</option>
+        <option value="Monk">Monk</option>
+        <option value="Paladin">Paladin</option>
+        <option value="Ranger">Ranger</option>
+        <option value="Rouge">Rouge</option>
+        <option value="Sorcerer">Sorcerer</option>
+        <option value="Warlock">Warlock</option>
+        <option value="Wizard"></option>
+      </select>
+    </label>
+    <label>
+      Background:
       <select name="background">
         <option value="Acolyte">Acolyte</option>
         <option value="Criminal/Spy">Criminal/Spy</option>
@@ -47,12 +48,15 @@
         <option value="Soldier">Soldier</option>
       </select>
     </label>
-  <label>Level:
-    <input type="number" name="level" value="<%= character.level %>">
-  </label>
-  <label>
-    Backstory:
-    <input type="text" maxlength="250" name="backstory" value="<%=character.backstory%>">
-  </label>
-
+    <label>
+      Level:
+      <input type="number" name="level" value="<%= character.level %>">
+    </label>
+    <label>
+      Backstory:
+      <input type="text" maxlength="250" name="backstory" value="<%=character.backstory%>">
+    </label>
+    <button type="submit">Edit</button>
+  </form>
+</section>
   <%- include('../partials/footer') %>

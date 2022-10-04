@@ -53,9 +53,27 @@ function edit(req,res) {
     res.redirect('/characters')
   })
 }
+function update(req, res) {
+  Character.findById(req.params.id)
+  .then(character => {
+    if (character.owner.equals(req.user.profile._id)) {
+      character.updateOne(req.body)
+      .then(()=> {
+        res.redirect(`/characters/${character._id}`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/characters`)
+  })
+}
 export {
   index,
   create,
   show,
   edit,
+  update,
 }
