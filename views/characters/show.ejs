@@ -5,4 +5,9 @@
   <h1><%= character.owner.name %></h1>
   <h1><%= character.name %> </h1>
 </section>
+<% if (character.owner.equals(user?.profile._id)) { %> 
+  <a href="/characters/<%= character._id %>/edit">
+      <button class="btn">Edit</button>
+    </a>
+<% } %>
 <%- include('../partials/footer') %>

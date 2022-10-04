@@ -8,6 +8,8 @@ router.get('/', charactersCtrl.index)
 
 router.get('/:id', charactersCtrl.show)
 
+router.get('/:id/edit', isLoggedIn, charactersCtrl.edit)
+
 router.post('/', isLoggedIn, charactersCtrl.create)
 
 export {

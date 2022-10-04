@@ -39,8 +39,23 @@ function show(req, res) {
     res.redirect('/characters')
   })
 }
+
+function edit(req,res) {
+  Character.findById(req.params.id)
+  .then(character => {
+    res.render('characters/edit', {
+      character,
+      title: 'edit character'
+    })
+  })
+  .catch( err =>{
+    console.log(err)
+    res.redirect('/characters')
+  })
+}
 export {
   index,
   create,
   show,
+  edit,
 }
