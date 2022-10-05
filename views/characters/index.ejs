@@ -9,11 +9,11 @@
     <form action="/characters" method="POST">
       <label>
         Name:
-        <input type="text" name="name" autocomplete="off">
+        <input type="text" name="name" autocomplete="off" required>
       </label>
       <label>
         Race:
-        <select name="race">
+        <select name="race" required>
           <option value="Dragonborn">Dragonborn</option>
           <option value="Dwarf">Dwarf</option>
           <option value="Elf">Elf</option>
@@ -27,7 +27,7 @@
       </label>
       <label>
         Class:
-        <select name="class">
+        <select name="class" required>
           <option value="Barbarian">Barbarian</option>
           <option value="Bard">Bard</option>
           <option value="Cleric">Cleric</option>
@@ -53,11 +53,11 @@
           </select>
         </label>
       <label>Level:
-        <input type="number" name="level">
+        <input type="number" name="level" required>
       </label>
       <label>
         Backstory:
-        <input type="text" maxlength="250" name="backstory">
+        <input type="text" maxlength="250" name="backstory" required>
       </label>
       <button type="submit">add Character</button>
     </form>

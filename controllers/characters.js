@@ -11,9 +11,6 @@ function index(req, res) {
 }
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key]
-  }
   Character.create(req.body)
   .then(character => {
     res.redirect('/characters')
