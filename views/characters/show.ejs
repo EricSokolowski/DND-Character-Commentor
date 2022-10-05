@@ -13,10 +13,14 @@
       <button class="btn" type="submit">Delete</button>
     </form>
 <% } %>
+<% if (user) { %>
 <form action="/characters/<%= character._id %>/comments" method="post">
   <textarea class='form-control' name="content" placeholder="Comment"></textarea>
   <button type="submit">save</button>
 </form>
+<% } else { %>
+  <h3>Login to comment</h3>
+<% } %>
 <div>
 <% character.comments.forEach(comment => { %>
   <p><%= comment.content %> </p>
