@@ -11,7 +11,6 @@ function index(req, res) {
 }
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  console.log(req.body)
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
@@ -26,7 +25,19 @@ function create(req, res) {
 }
 
 function show(req, res) {
+  console.log(req.params.id)
   Character.findById(req.params.id)
+  .populate([
+    {
+      path: 'comments',
+      populate: {
+        path: 'owner'
+      }
+    },
+    {
+      path: 'owner',
+    }
+  ])
   .populate('owner')
   .then(character => {
     res.render('characters/show', {
@@ -88,6 +99,26 @@ function deleteCharacter(req, res) {
     res.redirect('/characters')
   })
 }
+
+function newComment( req, res) {
+  // const comment = new Character.comment(req.body)
+  // comment
+  // .save()
+  req.body.owner = req.user.profile._id
+  Character.findById(req.params.id)
+  .then((character) => {
+    character.comments.push(req.body)
+    console.log(character)
+    character.save()
+    .then(() => res.redirect(`/characters/${req.params.id}`))
+    .catch((err) => {
+      console.log(err)
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+}
 export {
   index,
   create,
@@ -95,4 +126,5 @@ export {
   edit,
   update,
   deleteCharacter as delete,
+  newComment,
 }

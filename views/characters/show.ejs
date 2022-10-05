@@ -13,4 +13,13 @@
       <button class="btn" type="submit">Delete</button>
     </form>
 <% } %>
+<form action="/characters/<%= character._id %>/comments" method="post">
+  <textarea class='form-control' name="content" placeholder="Comment"></textarea>
+  <button type="submit">save</button>
+</form>
+<div>
+<% character.comments.forEach(comment => { %>
+  <p><%= comment.content %> </p>
+<% }) %>
+</div>
 <%- include('../partials/footer') %>
