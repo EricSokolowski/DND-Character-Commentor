@@ -10,6 +10,11 @@
     >
   </div>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+  <section>
+  <% profile.characters.forEach(character => { %>
+    <p><%= character.name %> </p>
+  <% }) %>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>

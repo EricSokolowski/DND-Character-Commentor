@@ -1,4 +1,5 @@
 import { Character } from '../models/character.js'
+import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   Character.find({})
@@ -13,6 +14,11 @@ function create(req, res) {
   req.body.owner = req.user.profile._id
   Character.create(req.body)
   .then(character => {
+    Profile.findById(req.user.porfile._id)
+    .then(profile => {
+      profile.characters.push(character._id)
+      profile.save()
+    })
     res.redirect('/characters')
   })
   .catch( err =>{

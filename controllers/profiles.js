@@ -1,3 +1,4 @@
+import { Character } from '../models/character.js'
 import { Profile } from '../models/profile.js'
 
 function index(req, res) {
@@ -16,14 +17,20 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate('characters')
   .then(profile => {
+    Character.find({ owner: profile._id})
+    .then(charactersForProfile => {
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render("profiles/show", {
       title: `${profile.name}'s profile`,
       profile,
       isSelf,
+      charactersForProfile,
     })
   })
+})
+  
   .catch((err) => {
     console.log(err)
     res.redirect("/profiles")
