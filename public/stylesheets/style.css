@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  background-image: url("web-page-background.jpeg") cover ;
   background-color: #1a1a1a;
   color: #f6f6f6;
   /* Use a system font, if none are available use any found sans-sarif font */
@@ -21,7 +22,7 @@ body {
 }
 
 nav {
-  background-color: #f6f6f6;
+  background-color: #fcd581;
   color: #1a1a1a;
   display: flex;
   align-items: center;
@@ -97,7 +98,18 @@ nav > a {
 }
 
 #background-image {
+  margin-top: 50px;
+  margin-bottom: 40px;
   width: 500px;
   height: 300px;
   border-radius: 50%;
+}
+
+.nav-content {
+  text-decoration: none;
+  color: black;
+}
+
+#welcome-message {
+  text-align: center;
 }

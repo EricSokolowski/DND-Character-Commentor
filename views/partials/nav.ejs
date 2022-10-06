@@ -4,10 +4,10 @@
 </head>
 <body>
 <nav>
-  <a href="/characters">Characters</a>
-  <a href="/profiles">Profiles</a>
+  <a class='nav-content' href="/characters">Characters</a>
+  <a class='nav-content' href="/profiles">Profiles</a>
   <% if (user) { %>
-    <a href="/auth/logout">Logout</a>
+    <a class='nav-content' href="/auth/logout">Logout</a>
   <% } else { %>
     <div 
       id="g_id_onload"
