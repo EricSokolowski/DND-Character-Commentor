@@ -14,12 +14,13 @@ function create(req, res) {
   req.body.owner = req.user.profile._id
   Character.create(req.body)
   .then(character => {
-    Profile.findById(req.user.porfile._id)
-    .then(profile => {
-      profile.characters.push(character._id)
-      profile.save()
+    Profile.updateOne(
+      {_id: req.user.profile._id},
+      {$push:{characters: character}}
+    )
+    .then(() => {
+      res.redirect('/characters')
     })
-    res.redirect('/characters')
   })
   .catch( err =>{
     console.log(err)

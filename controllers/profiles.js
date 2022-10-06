@@ -19,17 +19,13 @@ function show(req, res) {
   Profile.findById(req.params.id)
   .populate('characters')
   .then(profile => {
-    Character.find({ owner: profile._id})
-    .then(charactersForProfile => {
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render("profiles/show", {
       title: `${profile.name}'s profile`,
       profile,
       isSelf,
-      charactersForProfile,
     })
   })
-})
   
   .catch((err) => {
     console.log(err)

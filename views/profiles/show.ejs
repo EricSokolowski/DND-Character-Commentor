@@ -12,7 +12,7 @@
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
   <section>
   <% profile.characters.forEach(character => { %>
-    <p><%= character.name %> </p>
+    <a href="/characters/<%= character._id %>"><%= character.name %></a>
   <% }) %>
   </section>
 </main>
