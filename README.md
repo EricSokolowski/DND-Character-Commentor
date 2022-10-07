@@ -1,5 +1,5 @@
 
-# DND Character Commenter 🐉 
+# DND Character Commentor 🐉 
 ## <a href='https://dnd-character-commenter.fly.dev/'>Link to App!!</a>
 
 ## About this app
