@@ -178,6 +178,12 @@ input[type=text ], input[type=number] {
   border-radius: 5px;
   margin: 5px 0;
 }
+
 #header {
 text-align: center;
+}
+
+.card:hover {
+  background-color: lightgray;
+  box-shadow: 2px 2px 2px black;
 }
