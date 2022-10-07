@@ -8,6 +8,7 @@ The goal of this app is to give details about a character that you've made or wi
 ## Planning Materials
 <a href='https://trello.com/b/ZJTZe2x3/dnd-character-commenter'>Check out my Trello Board!!</a>
 
+![launch page screeen grap](/public/assets/readme.png "launch img")
 
 ## Technologies Used
 - MongoDB
