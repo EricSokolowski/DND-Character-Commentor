@@ -2,18 +2,17 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Characters</h1>
-
+  
   <% if (user) { %>
-    <h2>Add a Character</h2>
-    <form action="/characters" method="POST">
+    <h2 id="header">Add a Character</h2>
+    <form class='character-form' action="/characters" method="POST">
       <label>
         Name:
         <input type="text" name="name" autocomplete="off" required>
       </label>
       <label>
         Race:
-        <select name="race" required>
+        <select class='form-select' name="race" required>
           <option value="Dragonborn">Dragonborn</option>
           <option value="Dwarf">Dwarf</option>
           <option value="Elf">Elf</option>
@@ -27,7 +26,7 @@
       </label>
       <label>
         Class:
-        <select name="class" required>
+        <select class='form-select' name="class" required>
           <option value="Barbarian">Barbarian</option>
           <option value="Bard">Bard</option>
           <option value="Cleric">Cleric</option>
@@ -41,34 +40,34 @@
           <option value="Warlock">Warlock</option>
           <option value="Wizard">Wizard</option>
         </select>
-        </label>
-        <label>Background:
-          <select name="background">
-            <option value="Acolyte">Acolyte</option>
-            <option value="Criminal/Spy">Criminal/Spy</option>
-            <option value="Folk Hero">Folk Hero</option>
-            <option value="Noble">Noble</option>
-            <option value="Sage">Sage</option>
-            <option value="Soldier">Soldier</option>
-          </select>
-        </label>
+      </label>
+      <label>Background:
+        <select class='form-select' name="background">
+          <option value="Acolyte">Acolyte</option>
+          <option value="Criminal/Spy">Criminal/Spy</option>
+          <option value="Folk Hero">Folk Hero</option>
+          <option value="Noble">Noble</option>
+          <option value="Sage">Sage</option>
+          <option value="Soldier">Soldier</option>
+        </select>
+      </label>
       <label>Level:
-        <input type="number" name="level" required min="1" max="20">
+        <input class='form-select' type="number" name="level" required min="1" max="20">
       </label>
       <label>
         Backstory:
-        <input type="text" maxlength="250" name="backstory" required>
+        <input type="text" maxlength="250" name="backstory" required placeholder="250 character limit... ">
       </label>
-      <button class='btn' type="submit">add Character</button>
+      <button id='add-character-btn' class='btn' type="submit">Add Character</button>
     </form>
     <% } %> 
-    <h2>All The Characters</h2>
-    <ul>
+    <h1>Characters</h1>
+    <ul class="character-card-container">
       <% characters.forEach(character => { %>
-        <a href="/characters/<%= character._id %>"><%= character.name %> <%= character.race %> <%=character.class %></a>
-    <%  }) %> 
-    </ul>
-
-</section>
-
+        <a class="character-card" href="/characters/<%= character._id %>"><%= character.name %> <%= character.race %> <%=character.class %></a>
+        <%  }) %> 
+      </ul>
+      
+    </section>
+    
 <%- include('../partials/footer') %>

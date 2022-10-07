@@ -25,7 +25,7 @@ nav {
   color: #1a1a1a;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding: 10px;
   min-height: 60px;
 }
@@ -83,7 +83,7 @@ nav > a {
 }
 
 .btn {
-  margin: 16px 0;
+  margin: 0px 0;
   border-radius: 5px;
 }
 
@@ -110,6 +110,74 @@ nav > a {
   color: black;
 }
 
+.nav-content :hover{
+  color: white;
+}
+
 #welcome-message {
+  color: #39393A;
   text-align: center;
+}
+
+#welcome-message-box {
+  background-color: #FFE66D;
+  border-radius: 25px;
+  padding: 0 25px;
+}
+
+#google-auth-btn {
+  border-radius: 50px;
+}
+
+.character-card {
+  display: flex;
+  padding: 10px 0px;
+  margin: 15px;
+  width: 300px;
+  justify-content: space-around;
+  text-align: justify;
+  background-color: rgb(174, 164, 164);
+  text-decoration: none;
+  color: black;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 15px;
+}
+
+.character-card-container :hover {
+  background-color: rgb(145, 122, 122);
+  box-shadow: 10px 5px 5px black;
+}
+
+.character-form {
+  width: 50%;
+  padding: 20px 20px;
+  margin: 0 auto;
+  background-color: rgb(174, 164, 164) ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  border-radius: 10px;
+}
+
+input[type=text ], input[type=number] {
+  border: 2px solid red;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+#add-character-btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.form-select {
+  border-radius: 5px;
+  margin: 5px 0;
+}
+#header {
+text-align: center;
 }
