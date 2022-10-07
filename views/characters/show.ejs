@@ -1,18 +1,25 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section>
-  <h1><%= character.owner.name %></h1>
-  <h1><%= character.name %> </h1>
+<section class="character-display-section">
+  <h3>Owner: <%= character.owner.name %></h3>
+  <p>Name: <%= character.name %> </p>
+  <p>Race: <%= character.race %> </p>
+  <p>Class: <%= character.class %> </p>
+  <p>Background:<%= character.background %> </p>
+  <p>Level:<%= character.level %> </p>
+  <p>Backstory:<%= character.backstory %> </p>
 </section>
-<% if (character.owner.equals(user?.profile._id)) { %> 
-  <a href="/characters/<%= character._id %>/edit">
-      <button class="btn">Edit</button>
-    </a>
-    <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">Delete</button>
-    </form>
-<% } %>
+  <% if (character.owner.equals(user?.profile._id)) { %> 
+    <div class="btn-container">
+      <a href="/characters/<%= character._id %>/edit">
+        <button class="btn">Edit</button>
+      </a>
+      <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete</button>
+      </form>
+    </div>
+    <% } %>
 <% if (user) { %>
 <form action="/characters/<%= character._id %>/comments" method="post">
   <textarea class='form-control' name="content" placeholder="Comment"></textarea>
