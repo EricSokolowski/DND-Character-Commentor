@@ -1,14 +1,14 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 <section>
-  <form action="/characters/<%= character._id %>?_method=PUT" method="POST">
+  <form class='character-form' action="/characters/<%= character._id %>?_method=PUT" method="POST">
     <label>
       Name:
       <input type="text" name="name" autocomplete="off" value="<%= character.name %>">
     </label>
     <label>
       Race:
-      <select name="race">
+      <select class='form-select' name="race">
         <option value="Dragonborn">Dragonborn</option>
         <option value="Dwarf">Dwarf</option>
         <option value="Elf">Elf</option>
@@ -22,7 +22,7 @@
     </label>
     <label>
       Class:
-      <select name="class">
+      <select class='form-select' name="class">
         <option value="Barbarian">Barbarian</option>
         <option value="Bard">Bard</option>
         <option value="Cleric">Cleric</option>
@@ -39,7 +39,7 @@
     </label>
     <label>
       Background:
-      <select name="background">
+      <select class='form-select' name="background">
         <option value="Acolyte">Acolyte</option>
         <option value="Criminal/Spy">Criminal/Spy</option>
         <option value="Folk Hero">Folk Hero</option>
@@ -56,7 +56,7 @@
       Backstory:
       <input type="text" maxlength="250" name="backstory" value="<%=character.backstory%>">
     </label>
-    <button type="submit">Edit</button>
+    <button class='btn' id="edit-btn" type="submit">Edit</button>
   </form>
 </section>
   <%- include('../partials/footer') %>

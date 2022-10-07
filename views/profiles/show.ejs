@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div>
+  <div class="profile-view">
     <img 
       class="profile-avatar"
       src="<%= profile.avatar %>" 
@@ -10,11 +10,11 @@
     >
   </div>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
-  <section>
+  <ul>
   <% profile.characters.forEach(character => { %>
-    <a href="/characters/<%= character._id %>"><%= character.name %></a>
+    <a class='character-card' href="/characters/<%= character._id %>"><%= character.name %> <%= character.race%> <%=character.class%> </a>
   <% }) %>
-  </section>
+  </ul>
 </main>
 
 <%- include('../partials/footer') %>

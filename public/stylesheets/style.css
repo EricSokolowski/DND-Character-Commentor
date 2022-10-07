@@ -211,7 +211,7 @@ text-align: center;
   padding-bottom: 20px;
 }
 .comment-section {
-  margin: 30px auto 0 auto;
+  margin: 30px auto 30px auto;
   width: 60%;
   background-color: grey;
   border-radius: 10px;
@@ -219,10 +219,15 @@ text-align: center;
 }
 
 .comment{
-  padding-left: 15px;
+  padding-left: 20px;
+  padding-bottom: 10px;
 }
 
-.reply-card {
+
+#edit-btn {
+  align-items: center;
+  width: 100px;
+}
+.profile-view {
   margin: 0 auto;
-  justify-content: center;
 }
